@@ -1,8 +1,9 @@
 import React from 'react';
+// import { saveEmail } from '../redux/actions';
 
 class Login extends React.Component {
   render() {
-    return <div>Loginn</div>;
+    return <div>Login</div>;
   }
 }
 
