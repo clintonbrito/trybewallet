@@ -8,7 +8,7 @@ export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 // ACTION CREATORS
-export const addEmail = (email) => ({
+export const saveEmail = (email) => ({
   type: SAVE_EMAIL,
   payload: email,
 });
