@@ -4,10 +4,8 @@ import { SAVE_EMAIL } from '../actions';
 // ATENÇÃO: você obrigatoriamente tem que utilizar as chaves "user" e "wallet" no seu estado global
 
 const INITIAL_STATE = {
-  user: {
-    email: '',
-    password: '',
-  },
+  email: '',
+  // password: '',
 };
 
 const user = (state = INITIAL_STATE, action) => {
@@ -16,7 +14,6 @@ const user = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       email: action.payload,
-      password: action.payload,
     };
   default:
     return state;

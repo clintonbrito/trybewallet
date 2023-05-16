@@ -2,12 +2,10 @@
 // ATENÇÃO: você obrigatoriamente tem que utilizar as chaves "user" e "wallet" no seu estado global
 
 const INITIAL_STATE = {
-  wallet: {
-    currencies: [],
-    expenses: [],
-    editor: false,
-    idToEdit: 0,
-  },
+  currencies: [],
+  expenses: [],
+  editor: false,
+  idToEdit: 0,
 };
 
 const wallet = (state = INITIAL_STATE, action) => {

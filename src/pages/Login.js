@@ -7,13 +7,13 @@ class Login extends React.Component {
   state = {
     isButtonDisabled: true,
     email: '',
-    // password: '',
+    password: '',
   };
 
-  validationFields = (characters) => {
-    const { email } = this.state;
+  validationFields = () => {
+    const { email, password } = this.state;
     const minCharacters = 6;
-    const validationInput = characters.length >= minCharacters;
+    const validationInput = password.length >= minCharacters;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const resultRegex = emailRegex.test(email);
@@ -33,18 +33,19 @@ class Login extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    }, this.validationFields(value));
+    }, this.validationFields);
   };
 
   handleSubmitButton = () => {
-    const { email, password, history, dispatch } = this.props;
-    dispatch(saveEmail(email, password));
+    const { email } = this.state;
+    const { history, dispatch } = this.props;
+    dispatch(saveEmail(email));
     history.push('/carteira');
   };
 
   render() {
-    const { isButtonDisabled } = this.state;
-    const { email, password } = this.props;
+    const { isButtonDisabled, email, password } = this.state;
+    // const {  } = this.props;
 
     return (
       <form>
@@ -56,7 +57,7 @@ class Login extends React.Component {
             id="email-input"
             data-testid="email-input"
             value={ email }
-            onChange={ (e) => this.handleChange(e.target) }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
@@ -67,13 +68,18 @@ class Login extends React.Component {
             id="password-input"
             data-testid="password-input"
             value={ password }
-            onChange={ (e) => this.handleChange(e.target) }
+            onChange={ this.handleChange }
           />
         </div>
         <button
           type="submit"
           disabled={ isButtonDisabled }
-          onClick={ () => this.handleSubmitButton() }
+          onClick={ (event) => {
+            this.handleSubmitButton();
+            // dispatch(saveEmail(email));
+            // history.push('/carteira');
+            event.preventDefault();
+          } }
         >
           Entrar
         </button>
@@ -86,11 +92,14 @@ Login.propTypes = {
   email: PropTypes.string,
   password: PropTypes.string,
   dispatch: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  email: state.user.email,
-  password: state.user.password,
-});
+// const mapStateToProps = (state) => ({
+//   email: state.user.email,
+//   password: state.user.password,
+// });
 
-export default connect(mapStateToProps)(Login);
+export default connect()(Login);
