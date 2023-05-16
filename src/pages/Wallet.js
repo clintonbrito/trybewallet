@@ -8,7 +8,9 @@ class Wallet extends React.Component {
     return (
       <>
         <Header />
-        <h2>teste</h2>
+        <h2>
+          testee
+        </h2>
       </>
     );
   }
