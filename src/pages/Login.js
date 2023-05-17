@@ -48,9 +48,14 @@ class Login extends React.Component {
     // const {  } = this.props;
 
     return (
-      <form>
-        <div>
-          <label htmlFor="email-input">E-mail:</label>
+      <form className="max-w-sm mx-auto">
+        <div className="mb-4">
+          <label
+            htmlFor="email-input"
+            className="block mb-2 text-green-500 text-center"
+          >
+            E-mail:
+          </label>
           <input
             name="email"
             type="email"
@@ -58,10 +63,18 @@ class Login extends React.Component {
             data-testid="email-input"
             value={ email }
             onChange={ this.handleChange }
+            className="w-full px-4 py-2 border
+            border-green-500 rounded focus:outline-none focus:border-green-600"
           />
         </div>
-        <div>
-          <label htmlFor="password-input">Senha:</label>
+        <div className="mb-4">
+          <label
+            htmlFor="password-input"
+            className="block mb-2
+          text-green-500 text-center"
+          >
+            Senha:
+          </label>
           <input
             name="password"
             type="password"
@@ -69,6 +82,8 @@ class Login extends React.Component {
             data-testid="password-input"
             value={ password }
             onChange={ this.handleChange }
+            className="w-full px-4 py-2 border
+            border-green-500 rounded focus:outline-none focus:border-green-600"
           />
         </div>
         <button
@@ -80,6 +95,10 @@ class Login extends React.Component {
             // history.push('/carteira');
             event.preventDefault();
           } }
+          className={ `w-full py-2 px-4
+            bg-green-500 text-white font-semibold rounded
+            hover:bg-green-600 focus:outline-none
+            ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}` }
         >
           Entrar
         </button>
