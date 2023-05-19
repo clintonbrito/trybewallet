@@ -96,7 +96,7 @@ class Login extends React.Component {
             event.preventDefault();
           } }
           className={ `w-full py-2 px-4
-            bg-green-500 text-white font-semibold rounded
+            bg-green-500 text-white font-semibold rounded-full
             hover:bg-green-600 focus:outline-none
             ${isButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}` }
         >
