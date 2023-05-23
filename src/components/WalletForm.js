@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrenciesAction } from '../redux/actions';
+import { getCurrenciesAction, getExchangesAction } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
-    value: '',
-    description: '',
     currency: 'USD',
+    description: '',
+    id: 0,
     method: 'Dinheiro',
     tag: 'Alimentação',
+    value: '',
   };
 
   async componentDidMount() {
@@ -21,6 +22,31 @@ class WalletForm extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  clearForm = () => {
+    this.setState({
+      currency: 'USD',
+      description: '',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      value: '',
+    });
+  };
+
+  handleClickAddExpense = (click) => {
+    click.preventDefault();
+    const { dispatch } = this.props;
+    const { currency, description, id, method, tag, value } = this.state;
+
+    const expenseToDispatch = { currency, description, id, method, tag, value };
+
+    dispatch((getExchangesAction(expenseToDispatch)));
+    this.clearForm();
+
+    this.setState((prevState) => ({
+      id: prevState.id + 1,
+    }));
   };
 
   render() {
@@ -116,7 +142,7 @@ class WalletForm extends Component {
             className="w-full py-2 px-4
             bg-green-500 text-whitefont-semibold rounded-full
             hover:bg-green-600 focus:outline-none"
-            // onClick={this.handleClick}
+            onClick={ this.handleClickAddExpense }
           >
             Adicionar Despesa
           </button>
