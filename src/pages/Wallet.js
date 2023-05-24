@@ -3,14 +3,22 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   render() {
     return (
-      <>
+      <div className="flex flex-col h-screen">
         <Header />
-        <WalletForm />
-      </>
+        <div className="flex flex-1">
+          <div>
+            <WalletForm />
+          </div>
+          <div>
+            <Table />
+          </div>
+        </div>
+      </div>
     );
   }
 }

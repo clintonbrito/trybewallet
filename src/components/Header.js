@@ -21,7 +21,7 @@ class Header extends React.Component {
     return (
       <header
         className="flex justify-between items-center py-4 px-6
-        bg-green-500 text-white"
+        bg-green-500 text-white w-full"
       >
         <h1 className="text-2xl">💱 TrybeWallet 💳️</h1>
         <div className="flex items-center">

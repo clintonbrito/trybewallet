@@ -64,7 +64,7 @@ class WalletForm extends Component {
               name="value"
               id="value-input"
               data-testid="value-input"
-              placeholder="R$"
+              placeholder={ currency }
               value={ value }
               onChange={ this.handleChange }
               className="border border-gray-300 px-2 py-1 rounded"
