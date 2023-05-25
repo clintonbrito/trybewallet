@@ -58,11 +58,11 @@ class WalletForm extends Component {
         <h2 className="text-2xl mb-4">Cadastre uma despesa 👇️</h2>
         <form>
           <div className="mb-4">
-            <label htmlFor="value-input" className="block mb-1">Valor:</label>
+            <label htmlFor="value-input2" className="block mb-1">Valor:</label>
             <input
               type="number"
               name="value"
-              id="value-input"
+              id="value-input2"
               data-testid="value-input"
               placeholder={ currency }
               value={ value }
@@ -71,11 +71,11 @@ class WalletForm extends Component {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="description-input" className="block mb-1">Descrição:</label>
+            <label htmlFor="description-input2" className="block mb-1">Descrição:</label>
             <input
               type="text"
               name="description"
-              id="description-input"
+              id="description-input2"
               data-testid="description-input"
               placeholder="Escreva aqui"
               value={ description }

@@ -48,7 +48,7 @@ class Login extends React.Component {
     // const {  } = this.props;
 
     return (
-      <form className="max-w-sm mx-auto">
+      <form className="max-w-sm mx-auto mt-40">
         <div className="mb-4">
           <label
             htmlFor="email-input"
