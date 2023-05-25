@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { removeExpense } from '../redux/actions';
 
 class Table extends Component {
+  removeExpenseButton = (id) => {
+    const { dispatch } = this.props;
+    dispatch(removeExpense(id));
+  };
+
   render() {
     const { expenses } = this.props;
 
@@ -52,6 +58,8 @@ class Table extends Component {
                   <button
                     className="bg-red-500 hover:bg-red-600
                     text-white font-bold py-1 px-1 rounded"
+                    data-testid="delete-btn"
+                    onClick={ () => this.removeExpenseButton(expense.id) }
                   >
                     Excluir
                   </button>

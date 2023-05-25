@@ -25,6 +25,11 @@ export const getWallet = (wallet) => ({
   payload: wallet,
 });
 
+export const removeExpense = (expense) => ({
+  type: REMOVE_EXPENSE,
+  payload: expense,
+});
+
 export const getCurrenciesAction = () => async (dispatch) => {
   const fetchCurrenciesAPI = 'https://economia.awesomeapi.com.br/json/all';
   const APIResponse = await fetch(fetchCurrenciesAPI);

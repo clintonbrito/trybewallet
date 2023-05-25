@@ -84,9 +84,9 @@ class WalletForm extends Component {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="currency-input" className="block mb-1">Moeda:</label>
+            <label htmlFor="currency-input2" className="block mb-1">Moeda:</label>
             <select
-              id="currency-input"
+              id="currency-input2"
               name="currency"
               data-testid="currency-input"
               value={ currency }

@@ -1,7 +1,7 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 // ATENÇÃO: você obrigatoriamente tem que utilizar as chaves "user" e "wallet" no seu estado global
 
-import { GET_CURRENCIES, GET_WALLET } from '../actions/index';
+import { GET_CURRENCIES, GET_WALLET, REMOVE_EXPENSE } from '../actions/index';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -24,6 +24,11 @@ const wallet = (state = INITIAL_STATE, action) => {
         ...state.expenses,
         action.payload,
       ],
+    };
+  case REMOVE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense.id !== action.payload),
     };
   default:
     return state;
